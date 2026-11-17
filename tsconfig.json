@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "strict": true,
+        "strictNullChecks": false,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "allowImportingTsExtensions": true,
+        "rewriteRelativeImportExtensions": true
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

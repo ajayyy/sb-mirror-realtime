@@ -1,13 +1,14 @@
-FROM node:27-alpine AS builder
+FROM node:26-alpine AS builder
 COPY package.json package-lock.json tsconfig.json ./
 COPY src src
-RUN npm ci && npm run tsc
+RUN npm ci && npx tsc -p tsconfig.json
 
-FROM node:27-alpine AS app
+FROM node:26-alpine AS app
 WORKDIR /usr/src/app
-RUN apk add --no-cache git postgresql-client
 COPY --from=builder ./node_modules ./node_modules
 COPY --from=builder ./dist ./dist
 COPY ./.git/ ./.git
-COPY databases/*.sql databases/
+COPY sql/*.sql sql/
 EXPOSE 8080
+
+CMD ["node", "dist/index.js"]
