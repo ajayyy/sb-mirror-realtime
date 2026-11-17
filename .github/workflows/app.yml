@@ -12,6 +12,7 @@ jobs:
     uses: ./.github/workflows/docker-build.yml
     with:
       name: "sb-mirror-realtime"
+      username: "ajayyy"
       folder: "./"
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
