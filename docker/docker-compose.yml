@@ -1,0 +1,23 @@
+name: sb-mirror-realtime
+
+services:
+  database:
+    container_name: sb-mirror-database
+    image: postgres:18
+    env_file: 
+      - database.env
+    volumes:
+      - ./database-data:/var/lib/postgresql/18/docker
+    ports:
+      - 5434:5432
+    restart: always
+  app:
+    container_name: sb-mirror-realtime
+    image: ghcr.io/ajayyy/sb-mirror-realtime:latest
+    restart: always
+    volumes:
+      - ../config.json:/usr/src/app/config.json:ro
+    links:
+      - database
+    ports:
+      - 8080:8080

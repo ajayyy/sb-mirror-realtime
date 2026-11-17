@@ -1,0 +1,16 @@
+{
+    "categories": ["sponsor"],
+    "actionTypes": ["skip", "mute"],
+    "db": {
+        "host": "database", // Leave this alone if using Docker
+        "port": 5432,
+        "database": "sponsorTimes",
+        "user": "postgres",
+        "password": "ADD_YOUR_PASSWORD_HERE" // Fill in a password here
+    },
+    "prefixSize": 4,
+    "subscribeAuth": "fill this in", // You need a valid authorization key from the host you are mirroring from
+    "mainBackend": "https://sponsor.ajay.app",
+    "port": 8080,
+    "baseUrl": "http://localhost:8080" // The base URL for this mirror server
+}
